@@ -1,6 +1,6 @@
 Este material es una derivación del trabajo de:
-* [Scott Domes]('https://blog.bitsrc.io/react-16-lifecycle-methods-how-and-when-to-use-them-f4ad31fb2282')
-* [Evheniy Bystrov]('https://hackernoon.com/first-steps-in-react-ef8c000c0585')
+* [Scott Domes](https://blog.bitsrc.io/react-16-lifecycle-methods-how-and-when-to-use-them-f4ad31fb2282)
+* [Evheniy Bystrov](https://hackernoon.com/first-steps-in-react-ef8c000c0585)
 
 
 
