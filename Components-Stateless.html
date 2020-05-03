@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const StatelessComponent = () => <h5>Hello!</h5>
+
+      const StatelessComponent2 = props => (
+        <h5> Hello {props.name}! <small>// from props</small></h5>
+      )
+
+      const StatelessComponent3 = () => {
+        const name = 'jesuskinto';
+        return (<h5>Hello {name}! <small>// from var</small></h5>)
+      }
+
+      const StatelessComponent4 = props => {
+        const color = props.status === 'success' ? 'green':'orange';
+        const myStyle = { color: color }
+        return (<h5 style={myStyle}>Hello jesuskinto {props.status}!</h5>)
+      }
+
+      const StatelessComponentChildren = () => (
+        <strong>this is children Component.</strong>
+      )
+
+      const StatelessComponentParent = () => (
+        <p>
+          This is a parent Component and <StatelessComponentChildren />
+        </p>
+      )
+
+      class AppComponent extends React.Component {
+        render() {
+          return (
+            <div>
+              <h3>Stateless Components</h3>
+              <hr />
+              <StatelessComponent/>
+              <StatelessComponent2 name="jesuskinto" />
+              <StatelessComponent3 />
+              <StatelessComponent4 status="success"/>
+              <StatelessComponent4 status="danger"/>
+              <StatelessComponentParent />
+            </div>
+          )  
+        }
+      }
+
+      ReactDOM.render(
+        AppComponent,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
