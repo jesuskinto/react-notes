@@ -11,11 +11,11 @@ React es una libreria modular desarrollada por facebook para construir interface
 Los componentes le permiten dividir la IU en piezas independientes y reutilizables, y pensar en cada pieza de forma aislada.
 
 * **Funcionales (presentacionales):** 
-    Componentes sin estado ni logica. 
+    Componentes sin estado ni ciclo de vida, requieren menos codigo que los `StateFul`.
 
     ```js
     function buildComponent (texto) { 
-        return `<h1> $ {text} </h1>`; 
+        return `<h1> ${text} </h1>`; 
     }
 
     const firstComponent = buildComponent ('Hola'); 
@@ -25,8 +25,56 @@ Los componentes le permiten dividir la IU en piezas independientes y reutilizabl
     ```
     *Si utiliza funciones sin efectos secundarios, funciones puras, puede repetir el mismo resultado pasando los mismos parámetros.*
 
+
+    Los componentes funcinales nos permiten trabajar con:
+
+    * Props
+    * Componentes Hijos
+    * Variables y funcione puras.
+
+
+    **Simple componente funcional:**
+    ```js
+    const StatelessComponent = () => <h5>Hello!</h5>
+    ```
+
+    **Props:**
+    ```js
+    const StatelessComponent2 = props => <h5>Hello {props.name}!</h5>
+    ```
+
+    **Variables internas:**
+    ```js
+    const StatelessComponent3 = () => {
+        const name = 'jesuskinto';
+        return <h5>Hello {name}!</h5>
+    }
+    ```
+
+    **Props y variables internas:**
+    ```js
+    const StatelessComponent4 = props => {
+        const color = props.status === 'success' ? 'green':'orange';
+        const myStyle = { color: color }
+        return <h5 style={myStyle}>Hello jesuskinto {props.status}!</h5>
+    }
+    ```
+
+    **Componentes hijos:**
+    ```js
+    const StatelessComponentChildren = () => (
+        <strong>this is children Component.</strong>
+    )
+
+    const StatelessComponentParent = () => (
+        <p>
+            This is a parent Component and <StatelessComponentChildren />
+        </p>
+    )
+    ```
+
 * **Clases (Contenedores):**
-    Componentes con estado y logia independiente. son mas pesados que los anteriores, pero permiten realizar un alto grado de personalización
+    Componentes con estado y ciclo de vida. son mas pesados que los anteriores, pero permiten realizar un alto grado de personalización
 
     ```js
     class Component {
@@ -93,7 +141,7 @@ Los métodos de ciclo de vida (con la excepción del constructor) son difíciles
 Estos métodos se llaman cuando se crea una instancia de un componente y se inserta en el DOM:
 
 * Constructor
-    > Los mayores casos de uso para el `contructor`son: Configuracion de estado inicial, creacion de `refs` y enlace de metodos.
+    > Los mayores casos de uso para el `contructor` son: Configuracion de estado inicial, creacion de `refs` y enlace de metodos.
 
     El primer componente en ser llamado es el constructor. 
 
@@ -241,3 +289,9 @@ class MyComponent extends React.Component {
 
 ```
 [Mas](https://reactjs.org/docs/refs-and-the-dom.html)
+
+
+# TODO
+
+* [HOC](https://es.reactjs.org/docs/higher-order-components.html)
+* [Hooks](https://es.reactjs.org/docs/hooks-intro.html)
