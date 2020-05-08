@@ -116,6 +116,28 @@ Los componentes le permiten dividir la IU en piezas independientes y reutilizabl
     this.state.comment = 'Hello';
     ```
 
+* **HOC (Componentes de orden superior):**
+
+    Los componentes de orden superior o (higher-order Components) son un patron en la composicion de componetes en react, son funciones que reciben un componente y retornan un nuevo componente.
+
+    Los HOC envuelven el componente recibido sobre un nuevo componente proviendolo de caracteristicas adicionales.
+
+    ```js
+    const EnhancedComponent = higherOrderComponent(WrappedComponent);
+    ```
+
+    Mientras que un componente transforma props en interfaz de usuario, un componente de orden superior transforma un componente en otro. 
+
+    > Los `HOC` se ofrecen como una mejor alternativa para la reutilizacion de componentes, anteriormente se recomendaban los mixins.
+
+    Por convension se el componente resultante de un HOC debe incluir el nombre del componente original y del HOC. ejemplo:
+
+    ```js
+    const SmallCardWithGreyBg = withGreyBg(SmallCard);
+    const BigCardWithGreyBg = withGreyBg(BigCard);
+    const HugeCardWithGreyBg = withGreyBg(HugeCard);
+    ```
+
 ## Lifecicle
 
 Los métodos de ciclo de vida (con la excepción del constructor) son difíciles de razonar. Añaden complejidad a su aplicación. No los use a menos que deba hacerlo.
